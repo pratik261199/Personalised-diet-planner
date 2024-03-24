@@ -1,0 +1,767 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style type="text/css">
+
+
+
+	@charset "UTF-8";
+.body1 {
+  font-family: "Roboto", sans-serif;
+  background-image: url(https://images.unsplash.com/photo-1609602644879-dd158c2b56b4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dGV4dHVyZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  
+  /* margin: 1%; */
+  box-sizing: border-box;
+}
+
+
+
+.container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  width: 100%;
+  min-width: 1180px;
+  margin: auto;
+  justify-content: center;
+}
+
+.float-none {
+  clear: both;
+}
+
+.summary-column {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 225px;
+  max-width: 400px;
+  background: linear-gradient(#5a89b1, #42656f);
+}
+.summary-column .profile-img {
+  position: relative;
+  height: 30%;
+}
+.summary-column .profile-img img {
+  width: 100%;
+  height: 100%;
+}
+.summary-column .profile-img .name {
+  position: absolute;
+  bottom: 25px;
+  left: 1em;
+  color: white;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+.summary-column .statistics {
+  margin: 20px 6% 0 6%;
+}
+.summary-column .statistics h2 {
+  color: #a1afbc;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+}
+.summary-column .statistics .age, .summary-column .statistics .bmi, .summary-column .statistics .blood, .summary-column .statistics .weight {
+  display: block;
+  width: 50%;
+  height: 100px;
+  box-sizing: border-box;
+  float: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.summary-column .statistics .title {
+  color: white;
+  letter-spacing: 2px;
+  font-size: 1.5em;
+  position: relative;
+  margin-top: -13px;
+  display: block;
+  line-height: 100px;
+  vertical-align: middle;
+}
+.summary-column .statistics .title:after {
+  color: #90a0aa;
+  font-size: 0.7em;
+  letter-spacing: 0px;
+  position: absolute;
+  bottom: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.summary-column .statistics .weight {
+  border-right: none;
+}
+.summary-column .statistics .title-weight:after {
+  content: "Weight";
+}
+.summary-column .statistics .title-age:after {
+  content: "Age";
+}
+.summary-column .statistics .title-bmi:after {
+  content: "BMI";
+}
+.summary-column .statistics .title-blood:after {
+  content: "Bloodgroup";
+}
+.summary-column .statistics .height {
+  height: 150px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.summary-column .statistics .height .icon {
+  display: block;
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: url("https://image.flaticon.com/icons/png/512/2723/2723525.png");
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.summary-column .statistics .height .data {
+  display: block;
+  width: 50%;
+  float: left;
+}
+.summary-column .statistics .height .data span {
+  display: block;
+  position: relative;
+  line-height: 130px;
+  vertical-align: middle;
+  font-size: 1.75em;
+  color: white;
+}
+.summary-column .statistics .height .data span:after {
+  content: "Height";
+  color: #90a0aa;
+  font-size: 0.7em;
+  line-height: 20px;
+  letter-spacing: 0px;
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+}
+.summary-column .statistics .bmi, .summary-column .statistics .blood {
+  border-bottom: none;
+}
+.summary-column .statistics .blood {
+  border-right: none;
+}
+.summary-column .statistics .percentage {
+  font-size: 0.7em;
+  line-height: 0.7em;
+}
+.summary-column .allergies {
+  padding-top: 20px;
+}
+.summary-column .row {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  text-transform: capitalize;
+  border-top: 1px solid #537482;
+  color: #f1f3f4;
+  margin-left: auto;
+  font-size: 20px;
+}
+.summary-column .row:last-child {
+  border-bottom: 1px solid #537482;
+  margin-bottom: 50px;
+}
+.summary-column .row .severity {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -75%);
+  width: 100px;
+  height: 5px;
+  background: #567681;
+}
+.summary-column .row .fill {
+  background: #c3f8ab;
+}
+
+.content-column {
+  background: white;
+  width: 100%;
+  min-width: 900px;
+  z-index: 0;
+}
+@media only screen and (max-width: 1250px) {
+  .content-column {
+    width: 77%;
+  }
+}
+.content-column .header-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.content-column .nav {
+  width: 50%;
+  float: left;
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 1;
+}
+.content-column .nav .content {
+  margin: 50px 0 0 50px;
+  white-space: nowrap;
+}
+.content-column .nav p {
+  text-transform: uppercase;
+  color: #899191;
+  letter-spacing: 1px;
+}
+.content-column .nav .name {
+  color: #636d6d;
+}
+.content-column .nav .shape {
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  font-size: 6em;
+  color: #8b9494;
+}
+.content-column .nav .score {
+  color: #34d0c4;
+}
+.content-column .select-boxes {
+  float: left;
+  width: 50%;
+}
+.content-column .select-boxes .content {
+  margin: 40px;
+  float: right;
+}
+.content-column .split-container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+}
+.content-column .split-container .split {
+  position: relative;
+  width: calc(100% / 3);
+  min-width: 300px;
+  text-align: center;
+  font-size: 1.7em;
+  font-weight: 300;
+  border-right: 1px solid #dddfe1;
+  border-bottom: 1px solid #dddfe1;
+}
+.content-column .split-container .split .split-graph {
+  max-width: 100%;
+  height: 125px;
+  overflow: hidden;
+}
+.content-column .split-container .split h3 {
+  font-size: 1.1em;
+  font-weight: 300;
+  margin: 50px 0 0 0;
+  color: black;
+}
+.content-column .split-container .split:last-child {
+  border-right: none;
+}
+.content-column .split-container .temperature, .food_type, .diet_preference, .plan_period, .content-column .split-container .calories, .content-column .split-container .heart-rate {
+  display: block;
+  color: black;
+  font-size: 2em;
+  line-height: 2em;
+  width: 225px;
+  margin: auto;
+  position: relative;
+  font-weight: 300;
+  margin: 10px auto;
+}
+.content-column .split-container .temperature:before, .content-column .split-container .calories:before, .content-column .split-container .heart-rate:before {
+  content: "";
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  background: url("https://svgshare.com/i/50V.svg");
+  background-size: 35px 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.content-column .split-container .temperature:after, .content-column .split-container .calories:after, .content-column .split-container .heart-rate:after {
+  content: "°";
+  font-weight: 300;
+  color: black;
+  position: absolute;
+  right: 35px;
+}
+.content-column .split-container .calories:before, .content-column .split-container .heart-rate:before {
+  background: url("https://i.dlpng.com/static/png/6989158_preview.png");
+  background-size: 43px 43px;
+}
+.content-column .split-container .calories:after, .content-column .split-container .heart-rate:after {
+  content: "cal";
+  font-size: 0.5em;
+  right: 30px;
+  bottom: -9px;
+}
+.content-column .split-container .heart-rate:before {
+  background: url("https://svgshare.com/i/51m.svg");
+  background-size: 35px 35px;
+  left: 30px;
+}
+.content-column .split-container .heart-rate:after {
+  content: "bpm";
+  right: 20px;
+}
+/* 
+******************************************************************************************************************** */
+
+
+ 
+.outer_container{
+padding: 0;
+background: black;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.container2{
+
+  width:100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/*html {
+  box-sizing: border-box;
+}
+*/
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #567681;
+  color: white;
+}
+
+
+.title {
+  color: grey;
+}
+
+.container2 .card{
+  background: black;
+  position: relative;
+  padding-left: 10px;
+}
+
+.container2 .card .face{
+  width: 200px;
+  height: 200px;
+  transition: 0.5s;
+
+}
+
+.container2 .card .face.face1{
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container2 .card:hover .face.face1{
+  transform: translateY(0);
+  background: #007bb5;
+
+
+}
+
+.container2 .card .face.face1 .content{
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+.container2 .card:hover .face.face1 .content{
+  opacity: 1;
+
+}
+
+.container2 .card .face.face1 .content img{
+  max-width:100px;
+
+
+}
+
+.container2 .card .face.face1 .content h3{
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1em;
+}
+
+
+
+.container2 .card .face.face2{
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  transform: translateY(-100px);
+}
+
+.container2 .card:hover .face.face2{
+    transform: translateY(0);
+ }
+
+.container2 .card .face.face2 .content p{
+
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container2 .card .face.face2 .content a{
+
+
+ margin-left: 20px;
+ 
+}
+
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.9;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+
+.contain1{
+position: relative;
+display :flex;
+justify-content: center;
+margin-bottom: 20px;
+
+}
+
+.card1 {
+margin-left:10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  color: #4c4c4c;
+  background-color:#f2f2f2;
+  opacity: 0.7;
+}
+
+
+.card1:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  opacity:1;
+  color:black;
+  background-color:#fff;
+}
+
+.container1 {
+  padding: 20px 0 0 0;
+}
+
+.about-section h2:hover{
+  color: #007bb5;
+}
+
+</style>
+
+<div>
+  {% if current_user.is_authenticated %}
+
+
+  <div class="body1">
+  
+    <div class="container">
+      
+      <!-- <div class="menu-column">
+        <ul class="nav">
+          <li class="pulse"></li>
+          <li class="chat"></li>
+          <li class="calendar"></li>
+          <li class="clipboard"></li>
+          <li class="settings"></li>
+        </ul>
+        <div class="profile"><img src="https://placeimg.com/100/100/face"/></div>
+      </div> -->
+      <div class="summary-column">
+        <div class="profile-img" id="profileImage"><img src="https://placeimg.com/400/400/face"/>
+          <!-- <div class="name"></div>Jana <br> Novakova -->
+        </div>
+        <div class="statistics">
+          
+          <h2>summary</h2>
+          <div class="age"><span class="title title-age">{{current_user.age}}</span></div>
+          <div class="weight"><span class="title title-weight">{{ current_user.weight}}</span></div>
+          <div class="float-none"></div>
+          <div class="height">
+            <div class="icon"></div>
+            <div class="data"><span>{{ current_user.height }} cm</span></div>
+          </div>
+          <div class="bmi"><span class="title title-bmi"><p id="demo"></p></span></div>
+          <div class="blood"><span class="title title-blood">{{current_user.blood}}<span class="percentage">+</span></span></div>
+          <div class="float-none"></div>
+          <h2 class="allergies">Disease</h2>
+          <div class="row">{{ current_user.disease }}</div>	<!-- .severity.fill(style="width: 45%; height: inherit") -->
+          	
+        </div>
+      </div>
+      <div class="content-column">
+        <div class="header-container" id="headerContainer">
+          <div class="nav" style="background-color:white">
+            <div class="content">
+              <p>
+                 hi<span class="name"> {{ current_user.username }}</span>, it seems you are in</p><span class="shape score">good</span><span class="shape">shape</span>
+            </div>
+          </div>
+          
+        </div>
+        <div class="split-container">
+          <div class="split" style="background-image: url(https://images.unsplash.com/photo-1552931668-b6fedfb82b1a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZmlyZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); background-size:cover">
+            <h3>Temperature</h3>
+            <div class="temperature"  >36.7</div>
+            <!-- <div class="split-graph">
+              <canvas id="temperatureGraph"></canvas>
+            </div> -->
+          </div>
+    
+          <div class="split" style="background-image:url(https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80);background-size: cover;">
+            <h3>Calories burned</h3>
+            <div class="calories">537</div>
+            <div class="split-graph">
+              <canvas id="calorieGraph"></canvas>
+            </div>
+          </div>
+          <div class="split" style="background-image:url(https://images.unsplash.com/photo-1529425689619-bf11828c26fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjZ8fGhlYXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);background-size: cover;">
+            <h3>Heart rate</h3>
+            <div class="heart-rate">87</div>
+            <div class="split-graph">
+              <canvas id="heartRateGraph"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="split-container">
+          <div class="split" style="background-image:url(https://images.unsplash.com/photo-1495195134817-aeb325a55b65?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);background-size: cover;">
+            <h3>Food Type</h3>
+            <div class="food_type" style="font-size:40px" >{{current_user.food_type }}</div>
+            <div class="split-graph">
+              <canvas id="temperatureGraph"></canvas>
+            </div>
+          </div>
+    
+          <div class="split" style="background-image:url(https://images.unsplash.com/photo-1479150928156-423a69d91fe0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);background-size: cover;">
+            <h3>Diet Preference</h3>
+            <div class="diet_preference" style="font-size:40px">{{current_user.diet_pref}}</div>
+            <div class="split-graph">
+              <canvas id="calorieGraph"></canvas>
+            </div>
+          </div>
+          <div class="split" style="background-image:url(https://images.unsplash.com/photo-1543779848-da02f76efe5e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGxhbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);background-size: cover;">
+            <h3>Plan Period</h3>
+        <div class="plan_period" style="font-size:40px">{{current_user.plan_period}}</div>
+            <div class="split-graph">
+              <canvas id="heartRateGraph"></canvas>
+            </div>
+          </div>
+        </div>
+    
+    
+    </div>
+  </div>
+  </div>
+  
+  <script>
+    var x = {{current_user.height}}/100;
+    var y = {{current_user.weight}};
+    var z = y/(x*x);
+    document.getElementById("demo").innerHTML = z.toPrecision(2);
+
+  </script>
+  {% else %}
+    <!-- <p>Please login or register!</p> -->
+    <div class="about-section">
+      <h1>Diet recommendation system</h1>
+      <p>We created an appropriate and personalized diet platform that proposes a daily menu using nutritional knowledge for a decision analysis approach based on multiple criteria to screen inappropriate foods. These criterias include BMI, diseases(clinical or heredity), dietary preferences, real-time data and feedback.</p>
+      <h3>Our functions</h3>
+    
+      <div class="contain1">
+    <div class="card1">
+      <div class="container1">
+        <h4><b>Personalised Menu</b></h4> 
+        <p>Every user will have his own personalised diet plan.</p> 
+      </div>
+    </div>
+    
+    <div class="card1">
+      <div class="container1">
+        <h4><b>Login and Register</b></h4> 
+        <p>User personal data will be stored</p> 
+      </div>
+    </div>
+    <div class="card1">
+      <div class="container1">
+        <h4><b>Feedback</b></h4> 
+        <p>Feedback to choose favorite food.</p> 
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    </div>
+    
+    <!-- <div >
+      
+    
+    </div> -->
+    
+    
+    <h2 style="text-align:center;background-color: black;margin-bottom: 0;padding-top: 15px;">Our Team</h2>
+    <div class="outer_container">
+    
+    <div class="container2">
+      <div class="card">
+          <div class="face face1">  
+            <div class="content">
+              <img style="border-radius: 50%" src="https://media-exp1.licdn.com/dms/image/C5103AQHzeHQnrhkWFQ/profile-displayphoto-shrink_200_200/0/1554525470879?e=1626912000&v=beta&t=s9XrA6C_c7wgIh-p24g3mgh--4LUzIw3wCvCxqeNMho">
+              <h3>Sachin</h3>
+            </div>
+    
+          </div>
+    
+          <div class="face face2">  
+             <div class="content">
+              <a href="https://www.facebook.com/rajwardhans77" target="blank" class="fa fa-facebook"></a>
+              <a href="https://twitter.com/ThisisRWS" target="blank" class="fa fa-twitter"></a>
+              <a href="mailto:johnsonsachin95@gmail.com" target="blank" class="fa fa-google"></a>
+              <a href="https://www.linkedin.com/in/sachin-johnson-chirayath-756273151/" target="blank" class="fa fa-linkedin"></a>
+              <p style="margin-top: 10px; color: black;">41213<p>
+             </div>
+          </div>
+    
+      </div>
+      <div class="card">
+          <div class="face face1">  
+            <div class="content">
+              <img style="border-radius: 50%" src="https://media-exp1.licdn.com/dms/image/C5603AQFRB7ZwGEVFeA/profile-displayphoto-shrink_800_800/0/1611240105222?e=1626912000&v=beta&t=YqFbVx6ZN9JJBrUpnqW70izRHSL-R-Q2xYHwvTJCHME">
+              <h3>Rajwardhan</h3>
+            </div>
+    
+          </div>
+    
+          <div class="face face2">  
+             <div class="content">
+              <a href="https://www.facebook.com/rajwardhans77" target="blank" class="fa fa-facebook"></a>
+              <a href="https://twitter.com/ThisisRWS" target="blank" class="fa fa-twitter"></a>
+              <a href="mailto:rajwardhans13@gmail.com" target="blank" class="fa fa-google"></a>
+              <a href="https://www.linkedin.com/in/rajwardhan-sinha-6237481b2/" target="blank" class="fa fa-linkedin"></a>
+              <p style="margin-top: 10px; color: black;">41256<p>
+             </div>
+          </div>
+    
+      </div>
+    
+      <div class="card">
+          <div class="face face1">  
+            <div class="content">
+              <img style="border-radius: 50%" src="https://media-exp1.licdn.com/dms/image/C5103AQEi6q9vfF3naw/profile-displayphoto-shrink_200_200/0/1574250182880?e=1626912000&v=beta&t=C688uV_j1aKxKSdvjjeE4McRzXBsMJKCGN-IRIlIF78">
+              <h3>Vishwajeet</h3>
+            </div>
+    
+          </div>
+    
+          <div class="face face2">  
+             <div class="content">
+              <a href="https://www.facebook.com/rajwardhans77" target="blank" class="fa fa-facebook"></a>
+              <a href="https://twitter.com/ThisisRWS" target="blank" class="fa fa-twitter"></a>
+              <a href="mailto:ekalvishwajit@gmail.com" target="blank" class="fa fa-google"></a>
+              <a href="https://www.linkedin.com/in/vishwajeet-ekal-66b304198/" target="blank" class="fa fa-linkedin"></a>
+              <p style="margin-top: 10px; color: black;">41217<p>
+             </div>
+          </div>
+    
+      </div>
+        <div class="card">
+          <div class="face face1">  
+            <div class="content">
+              <img style="border-radius: 50%" src="https://media-exp1.licdn.com/dms/image/C5603AQHOkQ5IS2ZKVQ/profile-displayphoto-shrink_200_200/0/1596552549263?e=1626912000&v=beta&t=Suc27TFYEdG-r76vgLSnv0NykCl5XsS7QRTyx3NWZ-E">
+              <h3>Pratik</h3>
+            </div>
+    
+          </div>
+    
+          <div class="face face2">  
+             <div class="content">
+             <a href="https://www.facebook.com/pratikyghodke" target="blank" class="fa fa-facebook"></a>
+              <a href="https://twitter.com/ThisisRWS" target="blank" class="fa fa-twitter"></a>
+              <a href="mailto:pratik261199@gmail.com" target="blank" class="fa fa-google"></a>
+              <a href="https://www.linkedin.com/in/pratik-ghodke-b9583918a/" target="blank" class="fa fa-linkedin"></a>
+              <p style="margin-top: 10px; color: black;">41219<p>
+             </div>
+          </div>
+    
+      </div>
+    
+    
+    </div>
+    
+    </div>
+
+
+  {% endif %}
+</div>
+
+
+
+
+{% endblock %}

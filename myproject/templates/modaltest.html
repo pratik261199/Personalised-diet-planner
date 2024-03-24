@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;900&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+.complete_body{
+	background: #eeeff4;
+}
+
+.wrapper .header{
+	width: 100%;
+	height: 50px;
+	background: #567681;
+	color: #fff;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-weight: 900;
+}
+
+.cards_wrap{
+	padding: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.cards_wrap .card_item{
+	padding: 15px 25px;
+	width: 25%;
+	transition: all .2s ease-in-out;
+}
+
+.cards_wrap .card_item:hover {
+transform: scale(1.1);
+}
+
+
+.cards_wrap .card_inner{
+	background: #fff;
+	border-radius: 5px;
+	padding: 35px 20px;
+	min-width: 225px;
+	min-height: 315px;
+	max-height: 370px;
+	width: 100%;
+}
+
+.cards_wrap .card_item img{
+	width: fill;
+	height: 80px;
+	margin-bottom: 5px;
+}
+
+.cards_wrap .card_item .role_name{
+	color: black;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-size: 20px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cards_wrap .card_item .real_name{
+	color: #b6c0c2;
+	font-size: 12px;
+	font-weight: 100;
+	margin: 5px 0 10px;
+}
+
+.cards_wrap .card_item .film{
+	font-size: 14px;
+	line-height: 24px;
+	color: #7b8ca0;
+}
+
+@media screen and (max-width: 1024px){
+	.cards_wrap .card_item{
+		width: 33%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.cards_wrap .card_item{
+		width: 50%;
+	}
+	.wrapper .header{
+		font-size: 16px;
+		height: 60px;
+	}
+}
+
+@media screen and (max-width: 568px){
+	.cards_wrap .card_item{
+		width: 100%;
+	}
+	.wrapper .header{
+		font-size: 14px;
+	}
+}
+
+</style>
+
+
+<div class="complete_body"> 
+    <div class="wrapper">
+        <div class="header">Exercises</div>
+    
+        <div class="cards_wrap">
+            <div class="card_item">
+                <div class="card_inner">
+                    
+                    <div class="role_name">Weights</div>
+                    <div class="real_name">Chadwick Boseman</div>
+                    <div class="film"><!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong1">
+                          Launch demo modal
+                        </button>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Jello
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card_item">
+                <div class="card_inner">
+                    
+                    <div class="role_name">Weights</div>
+                    <div class="real_name">Chadwick Boseman</div>
+                    <div class="film"><!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong3">
+                          Launch demo modal
+                        </button>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Yaaahoooooo
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card_item">
+                <div class="card_inner">
+                    
+                    <div class="role_name">Weights</div>
+                    <div class="real_name">Chadwick Boseman</div>
+                    <div class="film"><!-- Button trigger modal -->
+                        Name of Food
+                        <br>
+                        Timpass
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong4">
+                        Launch demo modal
+                      </button>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Yaaahoooooo
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="card_item">
+                <div class="card_inner">
+                    <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJ1bm5pbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                    <div class="role_name">Running</div>
+                    <div class="real_name">Benedict Cumberbatch</div>
+                    <div class="film"><!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2">
+                          Launch demo modal
+                        </button>
+                        
+                        <!-- Modal -->
+                        </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                     Jababababab
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+           
+            
+        </div>
+    </div>  
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
