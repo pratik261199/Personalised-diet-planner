@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <form method = "POST">  
+             
+      
+    <div style = "font-size:18px;" font-weight:bold; margin-left:150px;>  
+       
+       {{ form.Breakfast.label }} <br>
+       {{ meals[0]['Name'] }}  {{ form.Breakfast }}
+       
+       <br>  
+       {{ form.Lunch.label }} <br>
+       {{ meals[1]['Name'] }}  {{ form.Lunch }}
+       
+       
+       <br>  
+       {{ form.Dinner.label }} <br>
+       {{ meals[2]['Name'] }}  {{ form.Dinner }}
+       
+       <br>  
+       {{ form.submit() }}  
+    </div>  
+      
+ </fieldset>  
+</form>
+</div>
+{% endblock %}
